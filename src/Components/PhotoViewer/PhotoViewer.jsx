@@ -1,9 +1,9 @@
 import React from "react";  // import React (to provide access to JSX)
 
-export function PhotoViewer(props) {    // declare and export new function called 'PhotoViewer'
+export function PhotoViewer({displayUrl}) {    // declare and export new function called 'PhotoViewer'
     return (
         <div>
-            <img src={props.displayUrl} />
+            <img src={displayUrl} alt="Random"/>
         </div>
     );
 }

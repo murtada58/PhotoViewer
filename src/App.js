@@ -6,7 +6,7 @@ import {ThumbNailViewer} from "./Components/ThumbNailViewer/ThumbNailViewer";
 function App() {
     const [displayUrl, setDisplayUrl] = useState("https://picsum.photos/id/600/1600/800.jpg")
     const [images, setImages] = useState([]);
-    const [imagesUrl, setImagesUrl] = useState("https://picsum.photos/v2/list?page=1&limit=200");
+    const [imagesUrl] = useState("https://picsum.photos/v2/list?page=1&limit=200");
 
     useEffect(() => {
         fetch(imagesUrl)
@@ -15,11 +15,11 @@ function App() {
     }, [imagesUrl])
 
   return (
-      <div>
-        <h1>React Photo Viewer</h1>
-        <PhotoViewer id="PhotoViewer" displayUrl = {displayUrl} />
+      <div id="app">
+          <h1>React Photo Viewer</h1>
+          <PhotoViewer id="PhotoViewer" displayUrl = {displayUrl} />
           <h1>Select display image below</h1>
-        <ThumbNailViewer images={images} setDisplayUrl = {setDisplayUrl} />
+          <ThumbNailViewer images={images} setDisplayUrl = {setDisplayUrl} />
       </div>
   );
 }
