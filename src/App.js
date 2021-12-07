@@ -1,26 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {PhotoViewer} from "./Components/PhotoViewer/PhotoViewer";
 import {ThumbNailViewer} from "./Components/ThumbNailViewer/ThumbNailViewer";
 
 function App() {
     const [displayUrl, setDisplayUrl] = useState("https://picsum.photos/id/600/1600/800.jpg")
-    const brokenImages = [1, 24, 32, 36, 44, 47];
-    const tempImageIds = [];
-    for (let i = 0; i < 50; i++) {
-        if (!brokenImages.includes(i)) {
-            const imageNumberString = i.toString().padStart(2, '0');
-            tempImageIds.push(imageNumberString)
-        }
-    }
-    const [imageIds, setImageIds] = useState(tempImageIds);
+    const [images, setImages] = useState([]);
+    const [imagesUrl, setImagesUrl] = useState("https://picsum.photos/v2/list?page=1&limit=200");
+
+    useEffect(() => {
+        fetch(imagesUrl)
+            .then(response => response.json())
+            .then(data => setImages(data))
+    }, [imagesUrl])
 
   return (
       <div>
         <h1>React Photo Viewer</h1>
         <PhotoViewer id="PhotoViewer" displayUrl = {displayUrl} />
-        <ThumbNailViewer imageIds={imageIds} setDisplayUrl = {setDisplayUrl} />
+          <h1>Select display image below</h1>
+        <ThumbNailViewer images={images} setDisplayUrl = {setDisplayUrl} />
       </div>
   );
 }
