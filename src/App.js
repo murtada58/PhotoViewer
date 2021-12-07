@@ -4,7 +4,7 @@ import {PhotoViewer} from "./Components/PhotoViewer/PhotoViewer";
 import {ThumbNailViewer} from "./Components/ThumbNailViewer/ThumbNailViewer";
 
 function App() {
-    const [displayUrl, setDisplayUrl] = useState("https://picsum.photos/id/600/1600/800.jpg")
+    const [displayUrl, setDisplayUrl] = useState("https://picsum.photos/id/600/1800/800.jpg")
     const [images, setImages] = useState([]);
     const [imagesUrl] = useState("https://picsum.photos/v2/list?page=1&limit=200");
 

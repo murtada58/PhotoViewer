@@ -7,7 +7,7 @@ export function ThumbNailViewer({images, setDisplayUrl}) {
                 <img
                     key={image.id}
                     src={`https://picsum.photos/id/${image.id}/200.jpg`}
-                    onClick={() => setDisplayUrl(`https://picsum.photos/id/${image.id}/1600/800.jpg`)}
+                    onClick={() => setDisplayUrl(`https://picsum.photos/id/${image.id}/1800/800.jpg`)}
                     alt="Random"
                 />
             )}
